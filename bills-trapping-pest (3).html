@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bill's Trapping & Pest Removal | Professional Wildlife & Pest Control</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#FFFFFF;
+    --forest:#0D3B10;
+  --dark:#F4FAF4;
+  --panel:#FFFFFF;
+  --yellow:#2E7D32;
+  --yellow-bright:#43A047;
+  --yellow-pale:#E8F5E9;
+  --olive:#1B5E20;
+  --tan:#3A6B3C;
+  --muted:#3A5E3C;
+  --cream:#E8F5E9;
+  --white:#FFFFFF;
+  --border:rgba(46,125,50,0.2);
+  --ff-display:'Bebas Neue',sans-serif;
+  --ff-condensed:'Barlow Condensed',sans-serif;
+  --ff-body:'Barlow',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--ff-body);background:var(--black);color:var(--forest);overflow-x:hidden}
+
+/* TOPBAR */
+.topbar{background:var(--yellow);color:#fff;text-align:center;padding:9px;font-family:var(--ff-condensed);font-size:14px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase}
+.topbar a{color:#E8F5E9;text-decoration:none}
+
+/* NAV */
+nav{background:#FFFFFF;border-bottom:2px solid var(--yellow);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:68px;position:sticky;top:0;z-index:100}
+.logo{font-family:var(--ff-display);font-size:26px;letter-spacing:0.06em;color:var(--forest);text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo-icon{width:36px;height:36px;background:var(--yellow);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--black)}
+.logo span{color:var(--yellow)}
+.nav-links{list-style:none;display:flex;align-items:center;gap:32px}
+.nav-links a{color:#1B4020;text-decoration:none;font-family:var(--ff-condensed);font-size:15px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;transition:color 0.2s}
+.nav-links a:hover{color:var(--yellow-bright)}
+.nav-cta{background:var(--yellow)!important;color:var(--black)!important;padding:10px 22px;font-weight:700!important}
+.nav-cta:hover{background:var(--yellow-bright)!important}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer}
+.hamburger span{width:24px;height:2px;background:#3A6B3C;display:block}
+
+/* HERO */
+.hero{min-height:100vh;background:var(--dark);position:relative;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;
+  background:
+    linear-gradient(100deg,rgba(232,245,233,0.97) 45%, rgba(232,245,233,0.75) 100%),
+    linear-gradient(to right, #c8e6c9 0%, #a5d6a7 40%, #81c784 70%, #c8e6c9 100%)}
+.hero-pattern{position:absolute;inset:0;opacity:0.04;
+  background-image:repeating-linear-gradient(0deg,transparent,transparent 40px,rgba(46,125,50,0.3) 40px,rgba(46,125,50,0.3) 41px),
+  repeating-linear-gradient(90deg,transparent,transparent 40px,rgba(46,125,50,0.3) 40px,rgba(212,178,0,0.5) 41px)}
+.hero-content{position:relative;z-index:2;padding:0 5%;max-width:780px}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;background:var(--yellow);color:#fff;font-family:var(--ff-condensed);font-size:13px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:7px 16px;margin-bottom:28px}
+.hero h1{font-family:var(--ff-display);font-size:clamp(60px,10vw,130px);line-height:0.92;color:var(--forest);margin-bottom:8px;letter-spacing:0.02em}
+.hero h1 span{color:var(--yellow)}
+.hero-sub{font-size:18px;color:#1B5020;max-width:480px;margin:24px 0 40px;line-height:1.7;font-weight:300}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn-primary{background:var(--yellow);color:var(--black);padding:15px 32px;font-family:var(--ff-condensed);font-size:16px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:background 0.2s;display:inline-block}
+.btn-primary:hover{background:var(--yellow-bright)}
+.btn-ghost{background:transparent;color:var(--forest);border:2px solid rgba(46,125,50,0.4);padding:13px 32px;font-family:var(--ff-condensed);font-size:16px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;transition:border-color 0.2s,color 0.2s;display:inline-block}
+.btn-ghost:hover{border-color:var(--yellow);color:var(--yellow)}
+.hero-right{position:absolute;right:0;top:0;bottom:0;width:45%;display:flex;align-items:center;justify-content:center;z-index:1}
+.hero-icon-bg{font-size:280px;opacity:0.12;user-select:none;line-height:1}
+.hero-stats{display:flex;gap:0;margin-top:48px}
+.h-stat{padding:20px 28px 20px 0;border-right:1px solid var(--border);margin-right:28px}
+.h-stat:last-child{border-right:none}
+.h-stat-num{font-family:var(--ff-display);font-size:42px;color:#1B5E20;line-height:1}
+.h-stat-label{font-family:var(--ff-condensed);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#3A5E3C;margin-top:4px}
+
+/* SERVICES */
+.section{padding:90px 5%}
+.section-dark{background:var(--dark)}
+.section-panel{background:#F4FAF4}
+.s-label{font-family:var(--ff-condensed);font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:var(--yellow);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.s-label::before{content:'';width:24px;height:2px;background:var(--yellow)}
+.s-heading{font-family:var(--ff-display);font-size:clamp(36px,5vw,60px);color:var(--forest);line-height:1;margin-bottom:8px}
+.s-heading span{color:var(--yellow)}
+.s-intro{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:52px}
+.s-intro p{color:#2E5030;font-size:15px;line-height:1.8;max-width:400px}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:2px}
+.svc-card{background:#FFFFFF;border:1px solid rgba(46,125,50,0.15);padding:36px 28px;border-top:3px solid transparent;transition:all 0.25s;cursor:pointer;text-decoration:none;display:block;color:inherit}
+.svc-card:hover{background:#F1F8F1;border-top-color:var(--yellow)}
+.svc-num{font-family:var(--ff-display);font-size:40px;color:rgba(46,125,50,0.15);line-height:1;margin-bottom:16px;transition:color 0.25s}
+.svc-card:hover .svc-num{color:rgba(46,125,50,0.3)}
+.svc-icon{font-size:32px;margin-bottom:12px;display:block}
+.svc-title{font-family:var(--ff-condensed);font-size:20px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--forest);margin-bottom:10px}
+.svc-desc{font-size:14px;color:#2E5030;line-height:1.7}
+
+/* WHY */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:50px}
+.why-card{background:#FFFFFF;border:1px solid rgba(46,125,50,0.15);padding:36px 28px;border-bottom:3px solid var(--yellow)}
+.why-icon{font-size:36px;margin-bottom:16px}
+.why-title{font-family:var(--ff-condensed);font-size:20px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--forest);margin-bottom:10px}
+.why-desc{font-size:14px;color:#2E5030;line-height:1.75}
+
+/* TESTIMONIALS */
+.t-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2px;margin-top:50px}
+.t-card{background:#FFFFFF;border:1px solid rgba(46,125,50,0.15);padding:32px 28px;border-left:3px solid var(--yellow)}
+.t-stars{color:var(--yellow);font-size:14px;letter-spacing:2px;margin-bottom:16px}
+.t-text{font-size:15px;color:#1E4020;line-height:1.8;font-style:italic;margin-bottom:20px}
+.t-name{font-family:var(--ff-condensed);font-size:14px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#1B5E20}
+.t-loc{font-size:12px;color:#3A5E3C;margin-top:2px}
+
+/* AREAS */
+.areas-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:40px}
+.area-chip{background:#FFFFFF;border:1px solid rgba(46,125,50,0.2);padding:18px;text-align:center;font-family:var(--ff-condensed);font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:#1B5020;border:1px solid rgba(46,125,50,0.25);transition:all 0.2s}
+.area-chip:hover{border-color:var(--yellow);color:var(--yellow)}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px}
+.form-label{font-family:var(--ff-condensed);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#2A5030;display:block;margin-bottom:8px}
+.form-input,.form-select,.form-textarea{width:100%;background:#F4FAF4;border:1px solid rgba(46,125,50,0.2);color:var(--forest);padding:13px 16px;font-family:var(--ff-body);font-size:15px;outline:none;transition:border-color 0.2s;appearance:none;border-radius:0}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--yellow)}
+.form-textarea{resize:vertical;min-height:120px}
+.form-row{margin-bottom:18px}
+.form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.contact-info-item{padding:24px 0;border-bottom:1px solid rgba(46,125,50,0.15);display:flex;gap:16px;align-items:flex-start}
+.contact-info-item:first-child{border-top:1px solid rgba(46,125,50,0.15)}
+.ci-icon{font-size:22px;color:var(--yellow);flex-shrink:0}
+.ci-label{font-family:var(--ff-condensed);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#2A5030;margin-bottom:3px}
+.ci-value{font-size:16px;color:#1B5E20}
+.ci-value a{color:var(--forest);text-decoration:none}
+.ci-value a:hover{color:var(--yellow)}
+
+/* FOOTER */
+footer{background:#F4FAF4;border-top:2px solid var(--yellow);padding:50px 5% 28px}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;padding-bottom:40px;border-bottom:1px solid rgba(46,125,50,0.2)}
+.footer-desc{font-size:14px;color:#2E5030;line-height:1.8;margin-top:12px;max-width:280px}
+.footer-heading{font-family:var(--ff-condensed);font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--yellow);margin-bottom:18px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:9px}
+.footer-links a{color:#2E5030;font-size:14px;text-decoration:none;transition:color 0.2s}
+.footer-links a:hover{color:var(--yellow)}
+.footer-bottom{padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#3A5E3C;font-family:var(--ff-condensed);letter-spacing:0.06em}
+
+/* FLOATING */
+.float-cta{position:fixed;bottom:28px;right:28px;z-index:200;background:var(--yellow);color:var(--black);padding:13px 22px;font-family:var(--ff-condensed);font-size:15px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;box-shadow:0 4px 20px rgba(0,0,0,0.5);transition:background 0.2s}
+.float-cta:hover{background:var(--yellow-bright)}
+
+/* CTA BAND */
+.cta-band{background:var(--yellow);padding:60px 5%;display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap}
+.cta-band-text .cta-band-title{font-family:var(--ff-display);font-size:clamp(32px,4vw,52px);color:var(--black);line-height:1}
+.cta-band-text p{font-size:15px;color:rgba(0,0,0,0.6);margin-top:6px}
+.btn-dark{background:#1B5E20;color:#fff;padding:15px 36px;font-family:var(--ff-condensed);font-size:16px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;transition:background 0.2s;display:inline-block}
+.btn-dark:hover{background:#0D3B10}
+
+@media(max-width:900px){
+  .nav-links{display:none}
+  nav.open .nav-links{display:flex;flex-direction:column;position:fixed;top:68px;left:0;right:0;background:#FFFFFF;padding:28px 5%;gap:20px;border-bottom:2px solid var(--yellow)}
+  .hamburger{display:flex}
+  .hero-right{display:none}
+  .hero-stats{flex-wrap:wrap;gap:16px}
+  .s-intro,.contact-grid{grid-template-columns:1fr;gap:32px}
+  .why-grid{grid-template-columns:1fr}
+  .areas-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-top{grid-template-columns:1fr;gap:28px}
+  .footer-bottom{flex-direction:column;gap:12px;text-align:center}
+  .form-row-2{grid-template-columns:1fr}
+  .cta-band{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">⚠️ 24/7 Emergency Wildlife & Pest Response &nbsp;|&nbsp; <a href="tel:+18005550199">Call Now: (800) 555-0199</a></div>
+
+<nav id="nav">
+  <a href="#" class="logo"><div class="logo-icon">🪤</div>Bill's <span>&nbsp;T&PR</span></a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#areas">Areas</a></li>
+    <li><a href="#contact" class="nav-cta">Free Inspection</a></li>
+  </ul>
+  <button class="hamburger" onclick="document.getElementById('nav').classList.toggle('open')"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🛡 Licensed & Insured Professionals</div>
+    <h1>WE REMOVE <span>PESTS</span> & WILDLIFE.</h1>
+    <p class="hero-sub">Fast, humane, and guaranteed pest control and wildlife trapping. Protecting homes and businesses 24 hours a day, 7 days a week.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Get a Free Inspection</a>
+      <a href="tel:+18005550199" class="btn-ghost">📞 Call 24/7</a>
+    </div>
+    <div class="hero-stats">
+      <div class="h-stat"><div class="h-stat-num">20+</div><div class="h-stat-label">Years Experience</div></div>
+      <div class="h-stat"><div class="h-stat-num">5K+</div><div class="h-stat-label">Jobs Completed</div></div>
+      <div class="h-stat"><div class="h-stat-num">100%</div><div class="h-stat-label">Guaranteed</div></div>
+    </div>
+  </div>
+  <div class="hero-right"><div class="hero-icon-bg">🪤</div></div>
+</section>
+
+<!-- SERVICES -->
+<section class="section section-dark" id="services">
+  <div class="s-intro">
+    <div>
+      <div class="s-label">What We Handle</div>
+      <div class="s-heading">PEST & <span>WILDLIFE</span><br>SERVICES</div>
+    </div>
+    <p>From raccoons in your attic to termites in your walls, Bill's handles every infestation and intrusion — fast, safe, and guaranteed.</p>
+  </div>
+  <div class="services-grid">
+    <a href="#contact" class="svc-card"><div class="svc-num">01</div><span class="svc-icon">🦝</span><div class="svc-title">Wildlife Trapping</div><p class="svc-desc">Humane trapping and removal of raccoons, opossums, squirrels, skunks, and more from your property.</p></a>
+    <a href="#contact" class="svc-card"><div class="svc-num">02</div><span class="svc-icon">🐀</span><div class="svc-title">Rodent Control</div><p class="svc-desc">Comprehensive rat and mouse elimination with sealing of entry points to prevent re-infestation.</p></a>
+    <a href="#contact" class="svc-card"><div class="svc-num">03</div><span class="svc-icon">🐝</span><div class="svc-title">Bee & Wasp Removal</div><p class="svc-desc">Safe removal of bee, wasp, and hornet nests — including Africanized bees — from structures and trees.</p></a>
+    <a href="#contact" class="svc-card"><div class="svc-num">04</div><span class="svc-icon">🐜</span><div class="svc-title">Ant & Termite Control</div><p class="svc-desc">Targeted ant treatments and full termite inspection, treatment, and damage repair services.</p></a>
+    <a href="#contact" class="svc-card"><div class="svc-num">05</div><span class="svc-icon">🪲</span><div class="svc-title">General Pest Control</div><p class="svc-desc">Ongoing pest management for roaches, spiders, fleas, bed bugs, and all common household pests.</p></a>
+    <a href="#contact" class="svc-card"><div class="svc-num">06</div><span class="svc-icon">🏠</span><div class="svc-title">Exclusion & Sealing</div><p class="svc-desc">Permanent wildlife exclusion by identifying and sealing all potential entry points in your structure.</p></a>
+    <a href="#contact" class="svc-card"><div class="svc-num">07</div><span class="svc-icon">🧹</span><div class="svc-title">Attic Cleanup</div><p class="svc-desc">Full attic decontamination, insulation removal, and restoration after wildlife damage.</p></a>
+    <a href="#contact" class="svc-card"><div class="svc-num">08</div><span class="svc-icon">🚨</span><div class="svc-title">Emergency Response</div><p class="svc-desc">24/7 emergency wildlife and pest response for dangerous or urgent situations.</p></a>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="section section-panel" id="why">
+  <div class="s-label">Why Bill's</div>
+  <div class="s-heading">TRUSTED. <span>FAST.</span> GUARANTEED.</div>
+  <div class="why-grid">
+    <div class="why-card"><div class="why-icon">🛡️</div><div class="why-title">Fully Licensed & Insured</div><p class="why-desc">All technicians are state-licensed wildlife control operators and pest management professionals. Fully bonded and insured for your protection.</p></div>
+    <div class="why-card"><div class="why-icon">⚡</div><div class="why-title">Same-Day Service</div><p class="why-desc">We respond fast because pests don't wait. Same-day and emergency appointments available 24/7, including weekends and holidays.</p></div>
+    <div class="why-card"><div class="why-icon">✅</div><div class="why-title">Work Guaranteed</div><p class="why-desc">Every job comes with our written guarantee. If the problem returns within our warranty period, we come back at no charge — period.</p></div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section section-dark" id="reviews">
+  <div class="s-label">Customer Reviews</div>
+  <div class="s-heading">WHAT CLIENTS <span>SAY</span></div>
+  <div class="t-grid">
+    <div class="t-card"><div class="t-stars">★★★★★</div><p class="t-text">"Bill's came out the same day I called. They found a raccoon family in my attic, trapped them humanely, sealed the entry, and cleaned up the mess. Professional from start to finish."</p><div class="t-name">Karen M.</div><div class="t-loc">Local Homeowner</div></div>
+    <div class="t-card"><div class="t-stars">★★★★★</div><p class="t-text">"Had a massive wasp nest under my deck. They came out within 2 hours of calling. Nest was gone, area was treated, and they gave me a warranty. Couldn't ask for more."</p><div class="t-name">Tony R.</div><div class="t-loc">Property Manager</div></div>
+    <div class="t-card"><div class="t-stars">★★★★★</div><p class="t-text">"Been using Bill's for our restaurant for 3 years. Monthly service keeps us completely rodent-free. Health inspector is always impressed. Worth every penny."</p><div class="t-name">Diana L.</div><div class="t-loc">Restaurant Owner</div></div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div class="cta-band-text">
+    <div class="cta-band-title">PEST PROBLEM? WE FIX IT TODAY.</div>
+    <p>Free inspections. No obligation. Guaranteed results.</p>
+  </div>
+  <a href="#contact" class="btn-dark">Schedule Free Inspection →</a>
+</div>
+
+<!-- AREAS -->
+<section class="section section-panel" id="areas">
+  <div class="s-label">Where We Serve</div>
+  <div class="s-heading">OUR <span>SERVICE</span> AREAS</div>
+  <div class="areas-grid">
+    <div class="area-chip">Downtown</div><div class="area-chip">North Side</div><div class="area-chip">South Side</div><div class="area-chip">East District</div>
+    <div class="area-chip">West End</div><div class="area-chip">Suburbs</div><div class="area-chip">Rural Areas</div><div class="area-chip">Commercial Zones</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section section-dark" id="contact">
+  <div class="s-label">Get In Touch</div>
+  <div class="s-heading" style="margin-bottom:50px">FREE <span>INSPECTION</span></div>
+  <div class="contact-grid">
+    <form onsubmit="submitForm(event)">
+      <div class="form-row-2">
+        <div class="form-row"><label class="form-label">Full Name *</label><input type="text" class="form-input" placeholder="Your name" required></div>
+        <div class="form-row"><label class="form-label">Phone *</label><input type="tel" class="form-input" placeholder="(555) 000-0000" required></div>
+      </div>
+      <div class="form-row"><label class="form-label">Service Needed</label>
+        <select class="form-select form-input">
+          <option>Wildlife Trapping</option><option>Rodent Control</option><option>Bee & Wasp Removal</option><option>Ant & Termite</option><option>General Pest Control</option><option>Emergency Response</option>
+        </select>
+      </div>
+      <div class="form-row"><label class="form-label">Describe the Problem</label><textarea class="form-textarea" placeholder="What are you dealing with? Where in the property?"></textarea></div>
+      <button type="submit" class="btn-primary" style="width:100%" id="sub-btn">Request Free Inspection →</button>
+      <div id="form-ok" style="display:none;margin-top:14px;padding:14px;background:#E8F5E9;border:1px solid var(--yellow);color:#1B5E20;font-family:var(--ff-condensed);letter-spacing:0.08em">✓ RECEIVED — We'll contact you within the hour.</div>
+    </form>
+    <div>
+      <div class="contact-info-item"><div class="ci-icon">📞</div><div><div class="ci-label">24/7 Emergency Line</div><div class="ci-value"><a href="tel:+18005550199">(800) 555-0199</a></div></div></div>
+      <div class="contact-info-item"><div class="ci-icon">🕐</div><div><div class="ci-label">Hours</div><div class="ci-value">24 Hours a Day, 7 Days a Week</div></div></div>
+      <div class="contact-info-item"><div class="ci-icon">🛡️</div><div><div class="ci-label">Licensed</div><div class="ci-value">State Licensed Wildlife Control & Pest Management</div></div></div>
+      <div class="contact-info-item"><div class="ci-icon">✅</div><div><div class="ci-label">Guarantee</div><div class="ci-value">Written Warranty on All Services</div></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <a href="#" class="logo" style="font-size:22px"><div class="logo-icon">🪤</div>Bill's <span>&nbsp;T&PR</span></a>
+      <p class="footer-desc">Professional wildlife trapping and pest removal services. Licensed, insured, and guaranteed. Serving residential and commercial clients 24/7.</p>
+    </div>
+    <div><div class="footer-heading">Services</div><ul class="footer-links"><li><a href="#services">Wildlife Trapping</a></li><li><a href="#services">Rodent Control</a></li><li><a href="#services">Bee & Wasp</a></li><li><a href="#services">Termite Control</a></li><li><a href="#services">Exclusion & Sealing</a></li></ul></div>
+    <div><div class="footer-heading">Company</div><ul class="footer-links"><li><a href="#why">Why Bill's</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#areas">Service Areas</a></li><li><a href="#contact">Contact</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 Bill's Trapping & Pest Removal. All rights reserved.</span><span>Licensed & Insured</span></div>
+</footer>
+
+<a href="tel:+18005550199" class="float-cta">📞 Call 24/7</a>
+
+<script>
+function submitForm(e){
+  e.preventDefault();
+  document.getElementById('sub-btn').textContent='Sending...';
+  document.getElementById('sub-btn').disabled=true;
+  setTimeout(()=>{document.getElementById('form-ok').style.display='block';document.getElementById('sub-btn').style.display='none'},1000);
+}
+</script>
+</body>
+</html>
